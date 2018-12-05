@@ -32,7 +32,9 @@ line_handler = fn lists ->
   |> Enum.any?(fn {start, list} ->
     last_idx = length(list) - 1
     result =
-      Enum.reduce_while(start..last_idx, :notfound, fn index, acc ->
+      Enum.reduce_while(start+1..last_idx, :notfound, fn index, acc ->
+        IO.puts(list)
+        IO.puts(Enum.at(lists, index))
         case string_handler.(list, Enum.at(lists, index)) do
           x when x == 1 -> {:halt, index}
           _ -> {:cont, acc}
@@ -50,6 +52,6 @@ end
 fstream
 |> Enum.map(fn binstr ->
   trimmed = String.trim_trailing(binstr)
-  :binary.bin_to_list(trimmed) 
+  :binary.bin_to_list(trimmed)
 end)
 |> line_handler.()
