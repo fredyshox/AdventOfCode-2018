@@ -7,3 +7,6 @@
 # elixir
 *.ez
 *.beam
+
+# output
+*.o
