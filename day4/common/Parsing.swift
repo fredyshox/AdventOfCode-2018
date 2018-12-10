@@ -56,7 +56,7 @@ func parseLog(_ line: String) -> Log {
       guard let idRange = g.range(of: "#[0-9]+", options: .regularExpression) else {
         throw ParseError.missingGuardId(line)
       }
-    let idStr = g[idRange].dropFirst()
+      let idStr = g[idRange].dropFirst()
       let id = Int(idStr)!
       event = .shift(id: id)
     case let s where s.hasSuffix("falls asleep"):
