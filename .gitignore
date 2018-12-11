@@ -8,5 +8,10 @@
 *.ez
 *.beam
 
+# python
+__pycache__/
+*.py[cod]
+
 # output
 *.o
+*.so
